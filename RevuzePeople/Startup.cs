@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BusinessLogic.Users.Interfaces;
+using BusinessLogic.Users.Services;
+using BusinessLogic.Groups.Interfaces;
+using BusinessLogic.Groups.Services;
 
 namespace RevuzePeople
 {
@@ -23,7 +27,9 @@ namespace RevuzePeople
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IUsersDBService, UsersDBService>();
+            services.AddSingleton<IUsersDBService, UsersDBService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IGroupService, GroupService>();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
