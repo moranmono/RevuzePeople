@@ -10,7 +10,5 @@ namespace BusinessLogic.Groups.Interfaces
     public interface IGroupService
     {
         Task<List<MonthGroupModel>> CreateMonthGroupModels();
-
-        Task<List<GroupModel>> CreateGroupModels();
     }
 }

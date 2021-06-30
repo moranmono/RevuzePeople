@@ -16,25 +16,21 @@ namespace BusinessLogic.Groups.Services
         {
             _userService = userService;
         }
-        public Task<List<GroupModel>> CreateGroupModels()
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<List<MonthGroupModel>> CreateMonthGroupModels()
         {
             var userModelList = await _userService.CreateUserModelOrderedList();
-            var monthGroupModels = new List<MonthGroupModel>();
+            var monthGroupModelList = new List<MonthGroupModel>();
             for (int i = 1; i < 13; i++)
             {
-                monthGroupModels.Add(
+                monthGroupModelList.Add(
                     new MonthGroupModel()
                     {
                         Month = i,
                         UserModels = userModelList.Where(um => um.BirthDate.Month == i).ToList()
                     });
             }
-            return monthGroupModels;
+            return monthGroupModelList;
         }
     }
 }
