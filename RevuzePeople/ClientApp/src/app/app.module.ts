@@ -5,27 +5,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { HeaderComponent } from './header/header.component';
+import { UserGroupComponent } from './user-group/user-group.component';
+import { UserListComponent } from './user-group/user-list/user-list.component';
+import { UserItemComponent } from './user-group/user-item/user-item.component';
+import { UserDetailsComponent } from './user-group/user-details/user-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    HeaderComponent,
+    UserGroupComponent,
+    UserListComponent,
+    UserItemComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: UserGroupComponent, pathMatch: 'full' },
     ])
   ],
   providers: [],
