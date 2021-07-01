@@ -1,6 +1,9 @@
 <div class="row">
-    <div class="col-5">
-      <app-user-list></app-user-list>
+    <div class="col-3">
+      <app-user-list
+      *ngFor="let userGroup of userGroups; let i = index"
+      [userList]="userGroup.UserModels"
+      ></app-user-list>
     </div>
     <div class="col-7">
       <router-outlet></router-outlet>
