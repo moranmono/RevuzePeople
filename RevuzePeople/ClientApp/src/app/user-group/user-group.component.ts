@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserGroup } from '../shared/user-group.model';
 import { UserGroupService } from '../shared/user-group.service';
 
@@ -8,17 +9,21 @@ import { UserGroupService } from '../shared/user-group.service';
   styleUrls: ['./user-group.component.css']
 })
 export class UserGroupComponent implements OnInit {
-  userGroups: UserGroup[];
-  constructor(private userGroupService: UserGroupService) { }
+  private groupId: number;
+  userGroup: UserGroup;
+  constructor(
+    private userGroupService: UserGroupService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.groupId = +this.route.snapshot.paramMap.get('groupId');
+    console.log('groupId', this.groupId);
     this.userGroupService.getUserGroups()
       .subscribe(
         (res) => {
           if (res) {
-            this.userGroups = res;
+            this.userGroup = res[this.groupId];
           }
-          console.log('res', this.userGroups);
         });
   }
 

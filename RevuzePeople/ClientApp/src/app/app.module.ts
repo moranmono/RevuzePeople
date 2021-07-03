@@ -25,7 +25,8 @@ import { UserDetailsComponent } from './user-group/user-details/user-details.com
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: UserGroupComponent, pathMatch: 'full' },
+      { path: '', redirectTo: '/user-group/0', pathMatch: 'full' },
+      { path: 'user-group/:groupId', component: UserGroupComponent}
     ])
   ],
   providers: [],

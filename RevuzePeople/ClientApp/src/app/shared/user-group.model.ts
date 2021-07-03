@@ -4,6 +4,6 @@ export class UserGroup {
     constructor(
         public from: number,
         public to: number,
-        public UserModels: User[]
+        public userModels: User[]
     ) {}
 }
