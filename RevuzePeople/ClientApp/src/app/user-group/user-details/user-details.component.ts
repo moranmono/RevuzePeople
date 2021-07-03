@@ -21,7 +21,6 @@ export class UserDetailsComponent implements OnInit {
     this.subscription = this.userGroupService.groupIdSub
     .subscribe((res) => {
       this.groupId = res;
-      console.log('groupId: ', this.groupId);
     });
     this.route.params
       .subscribe((params) => {
