@@ -1,8 +1,7 @@
 <div style="padding-bottom: 10px">
     <a
       style="cursor: pointer; "
-      [routerLink]="[index]"
-      routerLinkActive=""
+      [routerLink]="['user-details', index]"
       class="list-group-item clearfix">
       <div class="pull-left">
         <h4 class="list-group-item-heading">{{user.fullName}}</h4>
